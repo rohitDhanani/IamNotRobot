@@ -1,1 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
 
+            /* height: 250px; */
+        }
+
+        .grid {
+            margin: 50px;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 150px 150px;
+            grid-template-rows: 100px 100px 100px;
+            grid-gap: 20px;
+        }
+
+        div {
+            border: 2px solid black;
+        }
+
+        input {
+            display: none;
+        }
+
+        .grid>div {
+            position: relative;
+
+        }
+
+        .image {
+            height: 100px;
+            width: 150px;
+            margin: 0px;
+
+        }
+
+        label {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            background: #fff;
+            box-shadow: 0px 5px 20px 2px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 200ms ease-in-out;
+            border-radius: 5px;
+        }
+
+        label:before {
+            content: "✓";
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            top: 8px;
+            left: 8px;
+            background: #0d0df1;
+            color: #fff;
+            text-align: center;
+            line-height: 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 200ms ease-in-out;
+        }
+
+        input:checked+label:before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        input:checked+label {
+            border: 2px solid #0d0df1;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h3>Please click on the identical tiles to verify that you are not a robot</h3>
+        </div>
+        <div class="grid">
+            <div>
+                <input onclick="display()" class="checkbox" type="checkbox" name="image1" value="img1" id="img1">
+                <label for="img1">
+                    <div class="image">
+                        <img id="image1"
+                            src="https://images.unsplash.com/photo-1663615280810-81f2f47f3b23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
+                            alt="">
+                    </div>
+
+                </label>
+            </div>
+            <div>
+                <input onclick="display()" class="checkbox" type="checkbox" name="image2" value="img2" id="img2">
+                <label for="img2">
+                    <div class="image">
+                        <img id="image2"
+                            src="https://images.unsplash.com/photo-1661956602868-6ae368943878?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                            alt="">
+                    </div>
+
+                </label>
+            </div>
+            <div>
+                <input onclick="display()" class="checkbox" type="checkbox" name="image3" value="img3" id="img3">
+                <label for="img3">
+                    <div class="image">
+                        <img id="image3"
+                            src="https://images.unsplash.com/photo-1663592151816-b30533dc08ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                            alt="">
+                    </div>
+
+                </label>
+            </div>
+            <div>
+                <input onclick="display()" type="checkbox" name="image4" value="img4" id="img4" class="checkbox">
+                <label for="img4">
+                    <div class="image">
+                        <img id="image4"
+                            src="https://images.unsplash.com/photo-1663464775968-d305e6465ee5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                            alt="">
+                    </div>
+
+                </label>
+            </div>
+            <div>
+                <input onclick="display()" class="checkbox" type="checkbox" name="image5" value="img5" id="img5">
+                <label for="img5">
+                    <div class="image">
+                        <img id="image5"
+                            src="https://images.unsplash.com/photo-1663591330601-aac94cb9ffb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"
+                            alt="">
+                    </div>
+
+                </label>
+            </div>
+            <div>
+                <input onclick="display()" class="checkbox" type="checkbox" name="image6" value="img1" id="img6">
+                <label for="img6">
+                    <div class="image">
+                        <img id="image6"
+                            src="https://images.unsplash.com/photo-1663615280810-81f2f47f3b23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
+                            alt="">
+                    </div>
+
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <button id="verify" style="display: none;" onclick="check()">Verify</button>
+    <button id="reset" style="display: none;">Reset</button>
+    <script>
+
+let a = document.getElementsByClassName('checkbox');
+        let rs = document.getElementById("reset");
+        rs.addEventListener('click', reset);
+        (function () {
+            let arr = ["https://images.unsplash.com/photo-1663615280810-81f2f47f3b23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60", "https://images.unsplash.com/photo-1661956602868-6ae368943878?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", "https://images.unsplash.com/photo-1663592151816-b30533dc08ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", "https://images.unsplash.com/photo-1663464775968-d305e6465ee5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80", "https://images.unsplash.com/photo-1663591330601-aac94cb9ffb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"]
+            let i = 1;
+            let s=new Set();
+            while (i <= 5) {
+                let index = Math.floor(Math.random() * arr.length);
+                if(s.has(index)){
+                    continue;
+                }
+                else{
+                let image = document.getElementById(`image${i}`);
+                image.src = arr[index];
+                image.setAttribute("data-ns-test",`img${i}`)
+                i++;
+                s.add(index);
+                }
+            }
+            let repeatIndex=Math.floor(Math.random() * arr.length);
+            let image6 = document.getElementById(`image6`);
+            image6.src = arr[repeatIndex];
+            image6.setAttribute("data-ns-test",`img${repeatIndex}`)
+            console.log("hello");
+        })()
+
+        function reset() {
+            for (const el of a) {
+                el.checked = false;
+
+            }
+            document.getElementById('reset').style.display = 'none';
+            document.getElementById('verify').style.display = 'none';
+            para.remove();
+
+        }
+
+        function display() {
+            let verifybtn = 0
+            let resetbtn = 0
+            for (const el of a) {
+                if (el.checked) {
+                    verifybtn++;
+                    resetbtn++;
+                }
+            }
+            if (resetbtn >= 1) {
+                document.getElementById('reset').style.display = 'inline';
+            }
+            else {
+                document.getElementById('reset').style.display = 'none';
+            }
+            if (verifybtn >= 2) {
+                document.getElementById('verify').style.display = 'inline';
+
+            }
+            else {
+                document.getElementById('verify').style.display = 'none';
+            }
+
+
+
+        }
+
+
+        function check() {
+            let arr = [];
+            let img1 = document.getElementById("img1");
+            let img2 = document.getElementById("img2");
+            let img3 = document.getElementById("img3");
+            let img4 = document.getElementById("img4");
+            let img5 = document.getElementById("img5");
+            let img6 = document.getElementById("img6");
+            let image1 = document.getElementById("image1");
+            let image2 = document.getElementById("image2");
+            let image3 = document.getElementById("image3");
+            let image4 = document.getElementById("image4");
+            let image5 = document.getElementById("image5");
+            let image6 = document.getElementById("image6");
+            if (img1.checked == true) {
+                arr.push(image1.src)
+
+            }
+            if (img2.checked == true) {
+                arr.push(image2.src)
+            }
+            if (img3.checked == true) {
+                arr.push(image3.src)
+            }
+            if (img4.checked == true) {
+                arr.push(image4.src)
+            }
+            if (img5.checked == true) {
+                arr.push(image5.src)
+            }
+            if (img6.checked == true) {
+                arr.push(image6.src)
+            }
+            console.log(arr);
+
+            let div = document.getElementsByClassName("grid")[0];
+            let p = document.createElement("p")
+            p.setAttribute("id", "para")
+
+            if (arr.length == 2) {
+                if (arr[0] == arr[1]) {
+
+                    p.innerHTML = "You are a human. Congratulations!"
+
+                }
+                else {
+
+                    p.innerHTML = "We can't verify you as a human. You selected the non-identical tiles."
+
+                }
+            }
+            div.insertAdjacentElement("beforebegin", p);
+            
+            document.getElementById('verify').style.display = 'none';
+
+        }
+    </script>
+</body>
+</html>
