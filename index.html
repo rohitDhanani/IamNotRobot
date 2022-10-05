@@ -179,6 +179,7 @@ let a = document.getElementsByClassName('checkbox');
         (function () {
             let arr = ["https://images.unsplash.com/photo-1663615280810-81f2f47f3b23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60", "https://images.unsplash.com/photo-1661956602868-6ae368943878?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", "https://images.unsplash.com/photo-1663592151816-b30533dc08ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", "https://images.unsplash.com/photo-1663464775968-d305e6465ee5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80", "https://images.unsplash.com/photo-1663591330601-aac94cb9ffb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"]
             let i = 1;
+            let repeatImgArr=[];
             let s=new Set();
             while (i <= 5) {
                 let index = Math.floor(Math.random() * arr.length);
@@ -191,13 +192,15 @@ let a = document.getElementsByClassName('checkbox');
                 image.setAttribute("data-ns-test",`img${i}`)
                 i++;
                 s.add(index);
+                repeatImgArr.push(image);
                 }
             }
             let repeatIndex=Math.floor(Math.random() * arr.length);
             let image6 = document.getElementById(`image6`);
-            image6.src = arr[repeatIndex];
-            image6.setAttribute("data-ns-test",`img${repeatIndex}`)
-            console.log("hello");
+            image6.src = repeatImgArr[repeatIndex].src;
+            let attrival=repeatImgArr[repeatIndex].getAttribute('data-ns-test');
+            image6.setAttribute("data-ns-test",`${attrival}`)
+            // console.log("//////////////////",image6);
         })()
 
         function reset() {
