@@ -169,13 +169,22 @@
         </div>
     </div>
 
-    <button id="verify" style="display: none;" onclick="check()">Verify</button>
-    <button id="reset" style="display: none;">Reset</button>
+    <!-- <button id="verify" style="display: none;" onclick="check()">Verify</button> -->
+    <!-- <button id="reset" style="display: none;">Reset</button> -->
     <script>
 
 let a = document.getElementsByClassName('checkbox');
-        let rs = document.getElementById("reset");
+        // let rs = document.getElementById("reset");
+        let container=document.getElementsByClassName("container")[0];
+        let rs = document.createElement("button");
+        rs.setAttribute("id","reset")
+        rs.innerText="Reset";
         rs.addEventListener('click', reset);
+
+        let vb = document.createElement("button");
+        vb.setAttribute("id","verify")
+        vb.innerText="Verify";
+        vb.addEventListener("click",check);
         (function () {
             let arr = ["https://images.unsplash.com/photo-1663615280810-81f2f47f3b23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60", "https://images.unsplash.com/photo-1661956602868-6ae368943878?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", "https://images.unsplash.com/photo-1663592151816-b30533dc08ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", "https://images.unsplash.com/photo-1663464775968-d305e6465ee5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80", "https://images.unsplash.com/photo-1663591330601-aac94cb9ffb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"]
             let i = 1;
@@ -208,9 +217,17 @@ let a = document.getElementsByClassName('checkbox');
                 el.checked = false;
 
             }
-            document.getElementById('reset').style.display = 'none';
-            document.getElementById('verify').style.display = 'none';
-            para.remove();
+            // document.getElementById('reset').style.display = 'none';
+            document.getElementById('reset').remove();
+            // document.getElementById('verify').remove();
+            if(document.getElementById("para")){
+                // console.log("inside reset")
+                document.getElementById("para").remove();
+                
+            }
+            if(document.getElementById('verify')){
+                document.getElementById('verify').remove();
+            }
 
         }
 
@@ -224,17 +241,31 @@ let a = document.getElementsByClassName('checkbox');
                 }
             }
             if (resetbtn >= 1) {
-                document.getElementById('reset').style.display = 'inline';
+                // document.getElementById('reset').style.display = 'inline';
+                if(!document.getElementById('reset')){
+                    container.insertAdjacentElement("afterend",rs)
+                    
+                }
             }
             else {
-                document.getElementById('reset').style.display = 'none';
+                if(document.getElementById('reset')){
+                    document.getElementById('reset').remove();
+                }
+                // document.getElementById('reset').style.display = 'none';
             }
             if (verifybtn == 2) {
-                document.getElementById('verify').style.display = 'inline';
+                // document.getElementById('verify').style.display = 'inline';
+                if(!document.getElementById('verify')){
+                    container.insertAdjacentElement("afterend",vb)
+                    
+                }
 
             }
             else {
-                document.getElementById('verify').style.display = 'none';
+                // document.getElementById('verify').style.display = 'none';
+                if(document.getElementById('verify')){
+                    document.getElementById('verify').remove();
+                }
             }
 
 
@@ -295,7 +326,12 @@ let a = document.getElementsByClassName('checkbox');
             }
             div.insertAdjacentElement("beforebegin", p);
             
-            document.getElementById('verify').style.display = 'none';
+            // document.getElementById('verify').style.display = 'none';
+            document.getElementById('verify').remove();
+            for (const el of a) {
+                el.checked = false;
+
+            }
 
         }
     </script>
